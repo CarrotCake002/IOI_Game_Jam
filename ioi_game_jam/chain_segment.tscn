@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://estayilhgkme"]
+
+[ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="1_j0wfr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovspr"]
+radius = 4.0
+height = 64.0
+
+[node name="ChainSegment" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0625, 0.5)
+texture = ExtResource("1_j0wfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ovspr")
+disabled = true

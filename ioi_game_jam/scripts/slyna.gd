@@ -32,6 +32,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():  # Only apply gravity when not on the floor
 		velocity.y += gravity * delta
 
+	# Allow jumping
+	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		velocity.y = jump_force
+
 	if is_on_wall_only():
 		is_wall_sliding = true
 		# Store the wall's normal to determine wall jump direction
@@ -63,6 +67,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = wall_normal.x * wall_jump_force
 			wall_jump_timer = 0
 			wall_jump_cooldown_timer = wall_jump_cooldown
-	
+
+
+	var push_force = 80.0
+
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
 	# Move the character
 	move_and_slide()

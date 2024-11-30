@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IOI_Game_Jam"
-run/main_scene="res://scenes/level1.tscn"
+run/main_scene="res://scenes/level2_not_drained.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
