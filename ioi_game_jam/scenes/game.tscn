@@ -273,6 +273,7 @@ script = ExtResource("2_lal28")
 position = Vector2(168, 168)
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_dull6")
+vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
 position = Vector2(168, 168)
