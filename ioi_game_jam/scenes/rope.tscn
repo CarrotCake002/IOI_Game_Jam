@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://be1fsblienhqp"]
+[gd_scene load_steps=4 format=3 uid="uid://cgcltg0qjg0vd"]
 
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="1_khtop"]
-[ext_resource type="PackedScene" uid="uid://cgby2mwl557sh" path="res://scenes/rope_segment.tscn" id="2_eyvrh"]
+[ext_resource type="PackedScene" uid="uid://b63bddtsg6qvj" path="res://scenes/rope_segment.tscn" id="2_eyvrh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_smten"]
 size = Vector2(16, 16)
