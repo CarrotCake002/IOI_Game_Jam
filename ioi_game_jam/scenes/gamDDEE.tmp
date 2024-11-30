@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://btn7yyqckqqxx"]
+[gd_scene load_steps=9 format=4 uid="uid://btn7yyqckqqxx"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_gs62v"]
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="2_dull6"]
 [ext_resource type="Script" path="res://scenes/slyna.gd" id="2_lal28"]
-[ext_resource type="PackedScene" uid="uid://cu3c4w7buo333" path="res://full_chain.tscn" id="4_t86ug"]
+[ext_resource type="PackedScene" uid="uid://dgxni678uh6gp" path="res://block.tscn" id="4_arrn4"]
+[ext_resource type="PackedScene" uid="uid://estayilhgkme" path="res://chain.tscn" id="5_dvwbc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mei4g"]
 texture = ExtResource("1_gs62v")
@@ -278,5 +279,20 @@ texture = ExtResource("2_dull6")
 position = Vector2(168, 168)
 shape = SubResource("RectangleShape2D_ite4u")
 
-[node name="FullChain" parent="." instance=ExtResource("4_t86ug")]
-position = Vector2(268, 124)
+[node name="ChainContainer" type="Node2D" parent="."]
+position = Vector2(220, 84)
+
+[node name="Block" parent="ChainContainer" instance=ExtResource("4_arrn4")]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="ChainContainer"]
+position = Vector2(0, 8)
+node_a = NodePath("../Block")
+node_b = NodePath("../Chain")
+
+[node name="Chain" parent="ChainContainer" instance=ExtResource("5_dvwbc")]
+position = Vector2(0, 40)
+scale = Vector2(1, 0.992081)
+
+[node name="Chain2" parent="ChainContainer" instance=ExtResource("5_dvwbc")]
+position = Vector2(0, 104)
+scale = Vector2(1, 0.992081)
