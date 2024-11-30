@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg7fg5joyhkvg"]
+
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_25blp"]
+[ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="1_m7qgj"]
+
+[node name="bullet" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_25blp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_m7qgj")

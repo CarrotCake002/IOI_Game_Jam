@@ -270,11 +270,12 @@ script = ExtResource("2_lal28")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slyna"]
 position = Vector2(168, 168)
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.125, 0.25)
 texture = ExtResource("2_dull6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
 position = Vector2(168, 168)
+scale = Vector2(1, 2)
 shape = SubResource("RectangleShape2D_ite4u")
 
 [node name="Rope" parent="." instance=ExtResource("4_8u2af")]
