@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_gs62v"]
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="2_dull6"]
-[ext_resource type="Script" path="res://scripts/slyna.gd" id="2_lal28"]
-[ext_resource type="PackedScene" uid="uid://cu3c4w7buo333" path="res://scenes/full_chain.tscn" id="4_t86ug"]
+[ext_resource type="Script" path="res://scenes/slyna.gd" id="2_lal28"]
+[ext_resource type="PackedScene" uid="uid://cu3c4w7buo333" path="res://full_chain.tscn" id="4_t86ug"]
 [ext_resource type="Script" path="res://scenes/chain_drop_trigger.gd" id="5_7tp1f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mei4g"]
@@ -279,7 +279,6 @@ script = ExtResource("2_lal28")
 [node name="Sprite2D" type="Sprite2D" parent="Slyna"]
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("2_dull6")
-vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
 shape = SubResource("RectangleShape2D_ite4u")
@@ -290,5 +289,3 @@ script = ExtResource("5_7tp1f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ChainDropTrigger"]
 shape = SubResource("RectangleShape2D_csq64")
-
-[connection signal="body_entered" from="ChainDropTrigger" to="ChainDropTrigger" method="_on_area2d_body_entered"]
