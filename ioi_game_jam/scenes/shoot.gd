@@ -1,4 +1,4 @@
-xtends CharacterBody2D
+extends CharacterBody2D
 
 
 const SPEED = 300.0
