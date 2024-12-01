@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cy4lbewft2ahq"]
+
+[ext_resource type="Script" path="res://scenes/fire.gd" id="1_l8nc0"]
+[ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="1_tlmat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l16y3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tv6y4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_tlmat")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vrgaw"]
+size = Vector2(40, 40)
+
+[node name="FireBoi" type="Area2D"]
+script = ExtResource("1_l8nc0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_l16y3")
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_tv6y4")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vrgaw")
