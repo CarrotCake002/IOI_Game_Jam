@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://wyaqffwl318r"]
+[gd_scene load_steps=5 format=3 uid="uid://c0hikinolqfbg"]
 
-[ext_resource type="Texture2D" uid="uid://bvr6ba3bhiwq4" path="res://assets/sprites/Mob_dead.png" id="1_kkoxj"]
+[ext_resource type="Texture2D" uid="uid://bvr6ba3bhiwq4" path="res://assets/sprites/Mob_dead.png" id="1_i1k1h"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yre8"]
-atlas = ExtResource("1_kkoxj")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ixyv"]
+atlas = ExtResource("1_i1k1h")
+region = Rect2(96, 0, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k702p"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_7yre8")
+"texture": SubResource("AtlasTexture_0ixyv")
 }],
 "loop": true,
 "name": &"default",
@@ -18,14 +18,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyhds"]
-size = Vector2(19, 30)
+size = Vector2(19, 14)
 
 [node name="Deadmonster" type="RigidBody2D"]
 mass = 1000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_k702p")
+autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_qyhds")

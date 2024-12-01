@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://cbwa5rsi5pddw"]
+[gd_scene load_steps=29 format=4 uid="uid://cbwa5rsi5pddw"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_oyafq"]
 [ext_resource type="Script" path="res://scripts/slyna.gd" id="2_5pia8"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dde7umvtg0r3d" path="res://scenes/deadperson.tscn" id="9_tw6m5"]
 [ext_resource type="PackedScene" uid="uid://dde5cyt3j4f73" path="res://scenes/gun.tscn" id="10_nlyik"]
 [ext_resource type="PackedScene" uid="uid://wyaqffwl318r" path="res://scenes/deadmonster.tscn" id="11_vfn6c"]
+[ext_resource type="PackedScene" uid="uid://c0hikinolqfbg" path="res://scenes/deadmonster_half.tscn" id="12_ytpsa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mei4g"]
 texture = ExtResource("1_oyafq")
@@ -421,8 +422,8 @@ position = Vector2(86, 287)
 rotation = -0.507891
 scale = Vector2(0.7, 0.7)
 
-[node name="Deadmonster" parent="." instance=ExtResource("11_vfn6c")]
-position = Vector2(207, 285)
-
 [node name="Deadmonster2" parent="." instance=ExtResource("11_vfn6c")]
 position = Vector2(347, 274)
+
+[node name="Deadmonster3" parent="." instance=ExtResource("12_ytpsa")]
+position = Vector2(204, 280)
