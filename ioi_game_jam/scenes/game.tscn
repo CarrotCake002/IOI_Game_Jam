@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_gs62v"]
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="2_dull6"]
-[ext_resource type="Script" path="res://scenes/slyna.gd" id="2_lal28"]
+[ext_resource type="Script" path="res://scripts/slyna.gd" id="2_lal28"]
 [ext_resource type="PackedScene" uid="uid://cu3c4w7buo333" path="res://scenes/full_chain.tscn" id="4_t86ug"]
 [ext_resource type="Script" path="res://scenes/chain_drop_trigger.gd" id="5_7tp1f"]
 
