@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwdpiumj5bt1r"]
+
+[ext_resource type="Texture2D" uid="uid://cyv48jkutslie" path="res://assets/sprites/water.png" id="1_78aqf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6872k"]
+radius = 1.0
+
+[node name="WaterParticle" type="Node2D"]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+gravity_scale = 0.542
+continuous_cd = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("1_78aqf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_6872k")

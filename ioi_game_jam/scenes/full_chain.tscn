@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl8pkqs3jxqm6"]
+
+[ext_resource type="PackedScene" uid="uid://dgxni678uh6gp" path="res://scenes/block.tscn" id="1_u4r80"]
+[ext_resource type="PackedScene" uid="uid://cywssb1d0qqbg" path="res://scenes/chain_segment.tscn" id="2_4l5wy"]
+
+[node name="FullChain" type="Node2D"]
+
+[node name="Block" parent="." instance=ExtResource("1_u4r80")]
+scale = Vector2(1.04713, 1)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 8)
+node_a = NodePath("../Block")
+node_b = NodePath("../ChainSegment")
+
+[node name="ChainSegment" parent="." instance=ExtResource("2_4l5wy")]
+position = Vector2(0, 24)
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 40)
+node_a = NodePath("../ChainSegment")
+node_b = NodePath("../ChainSegment2")
+
+[node name="ChainSegment2" parent="." instance=ExtResource("2_4l5wy")]
+position = Vector2(0, 56)

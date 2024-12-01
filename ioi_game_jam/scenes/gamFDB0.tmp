@@ -1,13 +1,10 @@
-[gd_scene load_steps=25 format=4 uid="uid://btn7yyqckqqxx"]
+[gd_scene load_steps=10 format=4 uid="uid://btn7yyqckqqxx"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_gs62v"]
-[ext_resource type="Script" path="res://scripts/slyna.gd" id="2_lal28"]
-[ext_resource type="Texture2D" uid="uid://dwikehdmjoiom" path="res://assets/sprites/fall.png" id="4_fvrx6"]
-[ext_resource type="PackedScene" uid="uid://dl8pkqs3jxqm6" path="res://scenes/full_chain.tscn" id="4_t86ug"]
+[ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="2_dull6"]
+[ext_resource type="Script" path="res://scenes/slyna.gd" id="2_lal28"]
+[ext_resource type="PackedScene" uid="uid://cu3c4w7buo333" path="res://scenes/full_chain.tscn" id="4_t86ug"]
 [ext_resource type="Script" path="res://scenes/chain_drop_trigger.gd" id="5_7tp1f"]
-[ext_resource type="Texture2D" uid="uid://b622sqqhk6h2" path="res://assets/sprites/stand_.png" id="5_d1bjc"]
-[ext_resource type="Texture2D" uid="uid://bm0mshkqghalh" path="res://assets/sprites/jump.png" id="6_pefw0"]
-[ext_resource type="Texture2D" uid="uid://e6t5wgr3hskt" path="res://assets/sprites/walk.png" id="7_ed3ui"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mei4g"]
 texture = ExtResource("1_gs62v")
@@ -259,113 +256,8 @@ texture = ExtResource("1_gs62v")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mei4g")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sepgn"]
-size = Vector2(12, 29)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q6koe"]
-atlas = ExtResource("4_fvrx6")
-region = Rect2(0, 0, 19, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_32nl5"]
-atlas = ExtResource("5_d1bjc")
-region = Rect2(0, 0, 19, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_m576h"]
-atlas = ExtResource("6_pefw0")
-region = Rect2(0, 0, 19, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayx5p"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2jwy"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwu6q"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ao401"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_70qaq"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uhfqu"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3f68x"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_varpu"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bim5h"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q6koe")
-}],
-"loop": true,
-"name": &"fall",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_32nl5")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_m576h")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ayx5p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x2jwy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dwu6q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ao401")
-}],
-"loop": true,
-"name": &"walking_l",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_70qaq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uhfqu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3f68x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_varpu")
-}],
-"loop": true,
-"name": &"walking_r",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ite4u"]
+size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csq64"]
 size = Vector2(82, 49)
@@ -381,20 +273,15 @@ tile_set = SubResource("TileSet_1bdwb")
 position = Vector2(268, 124)
 
 [node name="Slyna" type="CharacterBody2D" parent="."]
-collision_layer = 4
+position = Vector2(144, 180)
 script = ExtResource("2_lal28")
 
+[node name="Sprite2D" type="Sprite2D" parent="Slyna"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("2_dull6")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
-position = Vector2(76, 210.5)
-shape = SubResource("RectangleShape2D_sepgn")
-
-[node name="standing" type="Sprite2D" parent="Slyna"]
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Slyna"]
-position = Vector2(75, 209)
-sprite_frames = SubResource("SpriteFrames_bim5h")
-animation = &"walking_r"
-autoplay = "walking_r"
+shape = SubResource("RectangleShape2D_ite4u")
 
 [node name="ChainDropTrigger" type="Area2D" parent="."]
 position = Vector2(368, 200)
