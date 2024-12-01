@@ -109,3 +109,11 @@ func handle_wall_jump() -> void:
 
 	# Move the character
 	move_and_slide()
+	
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("FireBois"):
+		print("Hello, Godot!")
+		get_tree().reload_current_scene()
+	pass # Replace with function body.
