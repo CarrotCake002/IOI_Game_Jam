@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://btn7yyqckqqxx"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_gs62v"]
-[ext_resource type="PackedScene" path="res://scenes/slyna.tscn" id="3_vjii8"]
+[ext_resource type="PackedScene" uid="uid://bd0kk31u7sx3l" path="res://scenes/slyna.tscn" id="3_vjii8"]
 [ext_resource type="PackedScene" uid="uid://dl8pkqs3jxqm6" path="res://scenes/full_chain.tscn" id="4_t86ug"]
 [ext_resource type="Script" path="res://scenes/chain_drop_trigger.gd" id="5_7tp1f"]
 

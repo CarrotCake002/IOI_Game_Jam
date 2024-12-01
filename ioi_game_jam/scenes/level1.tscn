@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=4 uid="uid://cwd1pliydy2p0"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_0ihef"]
-[ext_resource type="PackedScene" uid="uid://dnqleesndh8o8" path="res://scenes/slyna.tscn" id="2_krcqv"]
+[ext_resource type="PackedScene" uid="uid://bd0kk31u7sx3l" path="res://scenes/slyna.tscn" id="2_krcqv"]
 [ext_resource type="PackedScene" uid="uid://bstteh213iyyx" path="res://scenes/water_generator.tscn" id="4_isg5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86x5o"]
