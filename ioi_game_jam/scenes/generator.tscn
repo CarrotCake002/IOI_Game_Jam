@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://we242l21elpg"]
+
+[ext_resource type="Texture2D" uid="uid://dju75stj24idq" path="res://assets/sprites/destroyed_generator.png" id="1_wcxfo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gvfk"]
+atlas = ExtResource("1_wcxfo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkqmc"]
+atlas = ExtResource("1_wcxfo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1rah"]
+atlas = ExtResource("1_wcxfo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0osvl"]
+atlas = ExtResource("1_wcxfo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1q5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gvfk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkqmc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1rah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0osvl")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo6vs"]
+size = Vector2(20, 23)
+
+[node name="Generator" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1q5n")
+animation = &"broken"
+autoplay = "broken"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_fo6vs")

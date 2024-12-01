@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dde7umvtg0r3d"]
+
+[ext_resource type="Texture2D" uid="uid://cfkloagdl1brs" path="res://assets/sprites/dead_body.png" id="1_ayoyv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6geu"]
+atlas = ExtResource("1_ayoyv")
+region = Rect2(0, 0, 35, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r1b17"]
+atlas = ExtResource("1_ayoyv")
+region = Rect2(35, 0, 35, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epmf1"]
+atlas = ExtResource("1_ayoyv")
+region = Rect2(70, 0, 35, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bvtyr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6geu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r1b17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epmf1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s61fj"]
+size = Vector2(32, 9)
+
+[node name="Deadperson" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bvtyr")
+autoplay = "default"
+frame_progress = 0.969747
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_s61fj")

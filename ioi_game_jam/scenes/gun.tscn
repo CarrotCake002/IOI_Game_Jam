@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dde5cyt3j4f73"]
+
+[ext_resource type="Texture2D" uid="uid://cv64u1y0oxgg6" path="res://assets/sprites/weapon.png" id="1_wofcq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgkb8"]
+atlas = ExtResource("1_wofcq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jnr0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgkb8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vydeo"]
+size = Vector2(30, 24)
+
+[node name="Gun" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_1jnr0")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vydeo")
