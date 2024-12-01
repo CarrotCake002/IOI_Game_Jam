@@ -389,7 +389,6 @@ script = ExtResource("2_pno3h")
 
 [node name="walking" type="Sprite2D" parent="Slyna"]
 position = Vector2(41, 255)
-scale = Vector2(1, 1)
 texture = ExtResource("3_4s2o0")
 hframes = 4
 
