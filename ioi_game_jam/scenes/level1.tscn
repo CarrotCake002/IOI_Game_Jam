@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://ej13023prbw2"]
+[gd_scene load_steps=8 format=4 uid="uid://cwd1pliydy2p0"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_0ihef"]
 [ext_resource type="Script" path="res://scripts/slyna.gd" id="3_r3le6"]
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="4_1ghul"]
-[ext_resource type="PackedScene" uid="uid://d00wjws4pdhgb" path="res://scenes/water_generator.tscn" id="4_isg5d"]
+[ext_resource type="PackedScene" path="res://scenes/water_generator.tscn" id="4_isg5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86x5o"]
 texture = ExtResource("1_0ihef")
