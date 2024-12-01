@@ -3,16 +3,12 @@ extends CharacterBody2D
 # Variables for movement
 @export var speed: float = 125.0  # Horizontal movement speed
 @export var gravity: float = 500.0  # Gravity strength
-@export var jump_force: float = -250.0  # Jump force (negative because y+ is downward)
+@export var jump_force: float = -200.0  # Jump force (negative because y+ is downward)
 
 @export var wall_jump_force: float = 250  # Horizontal force for wall jump
 @export var wall_slide_speed: float = 20.0  # Speed of sliding down walls
 @export var wall_jump_grace_time: float = 0.3
 @export var wall_jump_cooldown: float = 1
-
-# Rope-related variables
-var grabbed_segment: RigidBody2D = null  # Store the rope segment the player grabs
-var is_grabbing: bool = false  # Track whether the player is holding the rope
 
 var wall_normal = Vector2.ZERO
 var wall_jump_timer: float = 0.0
@@ -32,18 +28,6 @@ func _physics_process(delta: float) -> void:
 	# Apply horizontal movement
 	velocity.x = direction.x * speed
 
-	# Rope grabbing mechanics
-	if is_grabbing:
-		position = grabbed_segment.global_position  # Follow the grabbed segment
-
-		if Input.is_action_just_pressed("Jump"):  # Jump off the rope
-			is_grabbing = false
-			velocity = Vector2(200 * direction.x, jump_force)  # Apply jump force
-	else:
-		# Apply gravity when not grabbing
-		if not is_on_floor():
-			velocity.y += gravity * delta
-
 	if is_on_wall_only():
 		is_wall_sliding = true
 		# Store the wall's normal to determine wall jump direction
@@ -61,7 +45,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = wall_slide_speed
 	else:
 		# Normal gravity when not wall sliding
-		if not is_on_floor() and not is_grabbing:
+		if not is_on_floor():
 			velocity.y += gravity * delta
 	# Allow jumping 
 	if Input.is_action_just_pressed("Jump"):
@@ -76,7 +60,7 @@ func _physics_process(delta: float) -> void:
 			wall_jump_timer = 0
 			wall_jump_cooldown_timer = wall_jump_cooldown
 
-	var push_force = 80.0
+	var push_force = 40.0
 
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
@@ -85,19 +69,3 @@ func _physics_process(delta: float) -> void:
 
 	# Move the character
 	move_and_slide()
-
-func _on_area2d_body_entered(body: Node) -> void:
-	if body is RigidBody2D:  # Ensure it's a rope segment
-		grabbed_segment = body
-
-func _on_area2d_body_exited(body: Node) -> void:
-	if body == grabbed_segment:
-		grabbed_segment = null
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("Interact") and grabbed_segment and not is_grabbing:
-		is_grabbing = true
-		velocity = Vector2.ZERO  # Stop player movement
-
-	if Input.is_action_just_released("Interact") and is_grabbing:
-		is_grabbing = false
