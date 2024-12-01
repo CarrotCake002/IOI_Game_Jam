@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://btn7yyqckqqxx"]
+[gd_scene load_steps=21 format=4 uid="uid://btn7yyqckqqxx"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_gs62v"]
 [ext_resource type="Script" path="res://scripts/slyna.gd" id="2_lal28"]
@@ -260,7 +260,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_mei4g")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sepgn"]
-size = Vector2(12, 29)
+size = Vector2(10, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q6koe"]
 atlas = ExtResource("4_fvrx6")
@@ -273,22 +273,6 @@ region = Rect2(0, 0, 19, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_m576h"]
 atlas = ExtResource("6_pefw0")
 region = Rect2(0, 0, 19, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ayx5p"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(0, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_x2jwy"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(16, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dwu6q"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(32, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ao401"]
-atlas = ExtResource("7_ed3ui")
-region = Rect2(48, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_70qaq"]
 atlas = ExtResource("7_ed3ui")
@@ -334,23 +318,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ayx5p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_x2jwy")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dwu6q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ao401")
-}],
-"loop": true,
-"name": &"walking_l",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_70qaq")
 }, {
 "duration": 1.0,
@@ -385,7 +352,7 @@ collision_layer = 4
 script = ExtResource("2_lal28")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
-position = Vector2(76, 210.5)
+position = Vector2(75, 210.5)
 shape = SubResource("RectangleShape2D_sepgn")
 
 [node name="standing" type="Sprite2D" parent="Slyna"]
@@ -393,7 +360,7 @@ shape = SubResource("RectangleShape2D_sepgn")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Slyna"]
 position = Vector2(75, 209)
 sprite_frames = SubResource("SpriteFrames_bim5h")
-animation = &"walking_r"
+animation = &"jump"
 autoplay = "walking_r"
 
 [node name="ChainDropTrigger" type="Area2D" parent="."]

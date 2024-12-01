@@ -25,16 +25,26 @@ var is_wall_sliding = false
 #func _ready():
 	#set_collision_layer_value(1, false)
 	#set_collision_layer_value(2, true)
+	
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta: float) -> void:
 	
 	var direction: Vector2 = Vector2.ZERO
+	
 	time_till_fire += delta
 	# Check for horizontal input
+	
+	# Play walking animation if moving
+	
 	if Input.is_action_pressed("Left"):  # Default "A" key
-		direction.x -= 1
+		direction.x = -1
+		animated_sprite_2d.flip_h = true
 	if Input.is_action_pressed("Right"):  # Default "D" key
-		direction.x += 1
+		direction.x = 1
+		animated_sprite_2d.flip_h = false
+
+		
 	if Input.is_action_pressed("shoot") and release_shoot:
 		shoot()
 		time_till_fire = 0.0
@@ -43,8 +53,16 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released("shoot"):
 		release_shoot = true
 	
+	
 	velocity.x = direction.x * speed
 	
+	if direction.x == 0:
+		animated_sprite_2d.play("idle")
+	elif not is_on_floor():
+		animated_sprite_2d.play("jump")
+	else:
+		animated_sprite_2d.play("walking_r")
+
 	# Apply gravity
 	if not is_on_floor() and not is_wall_sliding:
 		velocity.y += gravity * delta
