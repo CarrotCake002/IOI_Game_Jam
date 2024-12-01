@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=4 uid="uid://btrw3bmh4atfn"]
+[gd_scene load_steps=8 format=4 uid="uid://btrw3bmh4atfn"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_hgfo5"]
 [ext_resource type="Script" path="res://scripts/slyna.gd" id="2_4pooj"]
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="3_11clo"]
+[ext_resource type="PackedScene" uid="uid://cf1ibhkpgg4ss" path="res://scenes/scene_manager.tscn" id="4_oikyf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mei4g"]
 texture = ExtResource("1_hgfo5")
@@ -287,3 +288,5 @@ texture = ExtResource("3_11clo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
 position = Vector2(41, 256)
 shape = SubResource("RectangleShape2D_ite4u")
+
+[node name="SceneManager" parent="." instance=ExtResource("4_oikyf")]
