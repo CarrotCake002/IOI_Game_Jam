@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch6immn6pcukh"]
+[gd_scene load_steps=5 format=3 uid="uid://c0hikinolqfbg"]
 
 [ext_resource type="Texture2D" uid="uid://bvr6ba3bhiwq4" path="res://assets/sprites/Mob_dead.png" id="1_i1k1h"]
 
@@ -20,7 +20,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyhds"]
 size = Vector2(19, 14)
 
-[node name="Deadmonster2" type="RigidBody2D"]
+[node name="Deadmonster" type="RigidBody2D"]
 mass = 1000.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
