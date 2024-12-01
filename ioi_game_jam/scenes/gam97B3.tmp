@@ -258,7 +258,8 @@ sources/0 = SubResource("TileSetAtlasSource_mei4g")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ite4u"]
 size = Vector2(16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6egnw"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_c7fvl"]
+radius = 8.0
 
 [node name="Game" type="Node2D"]
 
@@ -281,9 +282,8 @@ texture = ExtResource("2_dull6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
 shape = SubResource("RectangleShape2D_ite4u")
 
-[node name="RopeGrab" type="Area2D" parent="Slyna"]
+[node name="RopeGrab" type="CollisionShape2D" parent="Slyna"]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(12, -4)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna/RopeGrab"]
-shape = SubResource("CircleShape2D_6egnw")
+shape = SubResource("CircleShape2D_c7fvl")
+disabled = true

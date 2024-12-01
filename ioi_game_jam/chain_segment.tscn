@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="1_j0wfr"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ovspr"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_88uds"]
 radius = 4.0
 height = 64.0
 
@@ -12,6 +12,7 @@ height = 64.0
 scale = Vector2(0.0625, 0.5)
 texture = ExtResource("1_j0wfr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_ovspr")
-disabled = true
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_88uds")

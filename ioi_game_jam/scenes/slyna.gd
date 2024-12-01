@@ -10,6 +10,10 @@ extends CharacterBody2D
 @export var wall_jump_grace_time: float = 0.3
 @export var wall_jump_cooldown: float = 1
 
+# Rope-related variables
+var grabbed_segment: RigidBody2D = null  # Store the rope segment the player grabs
+var is_grabbing: bool = false  # Track whether the player is holding the rope
+
 var wall_normal = Vector2.ZERO
 var wall_jump_timer: float = 0.0
 var wall_jump_cooldown_timer: float = 0.0 
@@ -28,13 +32,17 @@ func _physics_process(delta: float) -> void:
 	# Apply horizontal movement
 	velocity.x = direction.x * speed
 
-	# Apply gravity
-	if not is_on_floor():  # Only apply gravity when not on the floor
-		velocity.y += gravity * delta
+	# Rope grabbing mechanics
+	if is_grabbing:
+		position = grabbed_segment.global_position  # Follow the grabbed segment
 
-	# Allow jumping
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = jump_force
+		if Input.is_action_just_pressed("Jump"):  # Jump off the rope
+			is_grabbing = false
+			velocity = Vector2(200 * direction.x, jump_force)  # Apply jump force
+	else:
+		# Apply gravity when not grabbing
+		if not is_on_floor():
+			velocity.y += gravity * delta
 
 	if is_on_wall_only():
 		is_wall_sliding = true
@@ -53,21 +61,20 @@ func _physics_process(delta: float) -> void:
 		velocity.y = wall_slide_speed
 	else:
 		# Normal gravity when not wall sliding
-		if not is_on_floor():
+		if not is_on_floor() and not is_grabbing:
 			velocity.y += gravity * delta
 	# Allow jumping 
 	if Input.is_action_just_pressed("Jump"):
 		if is_on_floor():
 			# Normal jump
 			velocity.y = jump_force
-		elif (is_wall_sliding or wall_jump_timer > 0)and wall_jump_cooldown_timer <= 0:
+		elif (is_wall_sliding or wall_jump_timer > 0) and wall_jump_cooldown_timer <= 0:
 			# Wall jump
 			velocity.y = jump_force
 			# Push away from the wall
 			velocity.x = wall_normal.x * wall_jump_force
 			wall_jump_timer = 0
 			wall_jump_cooldown_timer = wall_jump_cooldown
-
 
 	var push_force = 80.0
 
@@ -78,3 +85,19 @@ func _physics_process(delta: float) -> void:
 
 	# Move the character
 	move_and_slide()
+
+func _on_area2d_body_entered(body: Node) -> void:
+	if body is RigidBody2D:  # Ensure it's a rope segment
+		grabbed_segment = body
+
+func _on_area2d_body_exited(body: Node) -> void:
+	if body == grabbed_segment:
+		grabbed_segment = null
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("Interact") and grabbed_segment and not is_grabbing:
+		is_grabbing = true
+		velocity = Vector2.ZERO  # Stop player movement
+
+	if Input.is_action_just_released("Interact") and is_grabbing:
+		is_grabbing = false
