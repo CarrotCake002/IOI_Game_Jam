@@ -387,11 +387,6 @@ tile_set = SubResource("TileSet_1bdwb")
 [node name="Slyna" type="CharacterBody2D" parent="."]
 script = ExtResource("2_pno3h")
 
-[node name="walking" type="Sprite2D" parent="Slyna"]
-position = Vector2(41, 255)
-texture = ExtResource("3_4s2o0")
-hframes = 4
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]
 position = Vector2(76, 210.5)
 shape = SubResource("RectangleShape2D_ite4u")

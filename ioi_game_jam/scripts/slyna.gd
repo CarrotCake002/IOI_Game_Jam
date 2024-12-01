@@ -52,8 +52,6 @@ func _physics_process(delta: float) -> void:
 	handle_wall_slide(delta)
 	handle_wall_jump()
 	
-	# Move the character
-	move_and_slide()
 	
 func shoot():
 	var bullet = bullet_scene.instantiate()
