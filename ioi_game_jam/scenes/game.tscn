@@ -266,11 +266,12 @@ tile_map_data = PackedByteArray("AAAaAA0AAAAXAAMAAAAaAA4AAAAXAAQAAAAaAA8AAAAXAAU
 tile_set = SubResource("TileSet_1bdwb")
 
 [node name="Slyna" type="CharacterBody2D" parent="."]
+collision_layer = 4
 script = ExtResource("2_lal28")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slyna"]
 position = Vector2(168, 168)
-scale = Vector2(0.125, 0.25)
+scale = Vector2(0.12296, 0.278812)
 texture = ExtResource("2_dull6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Slyna"]

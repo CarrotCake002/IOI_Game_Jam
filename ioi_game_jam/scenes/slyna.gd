@@ -9,7 +9,7 @@ extends CharacterBody2D
 @export var wall_slide_speed: float = 20.0  # Speed of sliding down walls
 @export var wall_jump_grace_time: float = 0.3
 @export var wall_jump_cooldown: float = 0.5
-@export var fire_rate: float = 100000
+@export var fire_rate: float = 1
 
 
 @onready var bullet_scene = preload("res://scenes/bullet.tscn")
@@ -18,9 +18,13 @@ var time_till_fire: float = 0.0
 var wall_normal = Vector2.ZERO
 var wall_jump_timer: float = 0.0
 var wall_jump_cooldown_timer: float = 0.0 
+var release_shoot: bool = true
 
 var is_wall_sliding = false
 
+#func _ready():
+	#set_collision_layer_value(1, false)
+	#set_collision_layer_value(2, true)
 
 func _physics_process(delta: float) -> void:
 	
@@ -31,14 +35,18 @@ func _physics_process(delta: float) -> void:
 		direction.x -= 1
 	if Input.is_action_pressed("Right"):  # Default "D" key
 		direction.x += 1
-	if Input.is_action_pressed("shoot") and time_till_fire >= 1.0 / fire_rate:
+	if Input.is_action_pressed("shoot") and release_shoot:
 		shoot()
 		time_till_fire = 0.0
+		release_shoot = false
 	# Apply horizontal movement
+	if Input.is_action_just_released("shoot"):
+		release_shoot = true
+	
 	velocity.x = direction.x * speed
 	
 	# Apply gravity
-	if not is_on_floor() and not is_wall_sliding:  # Only apply gravity when not on the floor
+	if not is_on_floor() and not is_wall_sliding:
 		velocity.y += gravity * delta
 
 	handle_wall_slide(delta)
@@ -49,8 +57,10 @@ func _physics_process(delta: float) -> void:
 	
 func shoot():
 	var bullet = bullet_scene.instantiate()
-	bullet.position = global_position + $Sprite2D.position
-	bullet.bullet_direction = (get_global_mouse_position() - $Sprite2D.position).normalized()
+	var spawn_position = global_position + $CollisionShape2D.position
+	bullet.global_position = global_position + $CollisionShape2D.position
+	var direction = (get_global_mouse_position() - spawn_position).normalized()
+	bullet.bullet_direction = direction
 	get_parent().add_child(bullet)
 
 func handle_wall_slide(delta: float) -> void:
