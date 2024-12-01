@@ -102,3 +102,10 @@ func handle_wall_jump() -> void:
 			wall_jump_timer = 0
 			wall_jump_cooldown_timer = wall_jump_cooldown
 	
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("FireBois"):
+		print("Hello, Godot!")
+		get_tree().reload_current_scene()
+	pass # Replace with function body.
