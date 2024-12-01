@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=4 uid="uid://bl8xkcc8nkegu"]
+[gd_scene load_steps=7 format=4 uid="uid://btrw3bmh4atfn"]
 
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_hgfo5"]
-[ext_resource type="Script" path="res://scenes/slyna.gd" id="2_pno3h"]
+[ext_resource type="Script" path="res://scripts/slyna.gd" id="2_4pooj"]
 [ext_resource type="Texture2D" uid="uid://3oo5y3mxluh2" path="res://icon.svg" id="3_11clo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mei4g"]
@@ -277,7 +277,7 @@ tile_map_data = PackedByteArray("AAAAABIAAAAUAAUAAAABABIAAAARAAMAAAACABIAAAARAAM
 tile_set = SubResource("TileSet_1bdwb")
 
 [node name="Slyna" type="CharacterBody2D" parent="."]
-script = ExtResource("2_pno3h")
+script = ExtResource("2_4pooj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Slyna"]
 position = Vector2(41, 255)
