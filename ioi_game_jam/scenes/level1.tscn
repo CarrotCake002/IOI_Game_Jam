@@ -283,7 +283,7 @@ script = ExtResource("6_stds5")
 shape = SubResource("RectangleShape2D_f63ys")
 
 [node name="Slyna" parent="." instance=ExtResource("2_krcqv")]
-position = Vector2(316, 47)
+position = Vector2(469, 80)
 
 [node name="Lever" type="Area2D" parent="."]
 script = ExtResource("7_klvwm")
