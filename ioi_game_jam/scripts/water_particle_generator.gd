@@ -4,8 +4,8 @@ extends Node2D
 @onready var water_particle_scene = preload("res://scenes/water_particle.tscn")
 
 # Define the point where water particles should be spawned
-@export var num_particles = 100
-@export var spawn_interval = 0.01  # Spawn a particle every 0.001 seconds (1 ms)
+@export var num_particles = 50
+@export var spawn_interval = 0.005  # Spawn a particle every 0.001 seconds (1 ms)
 @export var spawn_x_range = Vector2(0, 0)
 @export var spawn_y_range = Vector2(0, 0)
 var particles_spawned = 0

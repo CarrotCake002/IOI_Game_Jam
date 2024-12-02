@@ -258,7 +258,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_86x5o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f63ys"]
-size = Vector2(80, 7)
+size = Vector2(38, 20.5)
 
 [node name="Level1" type="Node2D"]
 
@@ -289,7 +289,7 @@ position = Vector2(469, 80)
 script = ExtResource("7_klvwm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lever"]
-position = Vector2(376, 60)
+position = Vector2(376, 53.25)
 shape = SubResource("RectangleShape2D_f63ys")
 
 [node name="SceneChange2" type="Area2D" parent="."]
