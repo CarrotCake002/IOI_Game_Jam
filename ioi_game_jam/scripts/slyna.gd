@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var jump_force: float = -200.0  # Jump force (negative because y+ is downward)
 
 @export var wall_jump_force: float = 200  # Horizontal force for wall jump
-@export var wall_slide_speed: float = 20.0  # Speed of sliding down walls
+@export var wall_slide_speed: float = 10.0  # Speed of sliding down walls
 @export var wall_jump_grace_time: float = 0.3
 @export var wall_jump_cooldown: float = 0.5
 @export var fire_rate: float = 1
@@ -146,13 +146,13 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_lever_area_entered(area: Area2D) -> void:
 	# Check if the entering body is the character
-	if area.name == "TriggerArea":
+	if area.name == "PlayerTriggerArea":
 		print("Character entered the area")
 		entered = true
 
 
 func _on_lever_area_exited(area: Area2D) -> void:
-	if area.name == "TriggerArea":
+	if area.name == "PlayerTriggerArea":
 		print("Character left the area")
 		entered = false
 
@@ -163,6 +163,7 @@ func _process(delta):
 func check_if_e_key_pressed():
 	if Input.is_action_just_pressed("Interact") and not lever_run:
 		lever_run = true
+		Singleton.water_drained = true
 		print("Player Interacted")
 		change_and_destroy_tiles()
 		spawn_water_particle()
@@ -171,12 +172,7 @@ func change_and_destroy_tiles():
 	# Get the TileMap node
 	var tilemap = get_parent().get_node("map")
 	
-	if !tilemap:
-		print("no tilemap")
-	# Change the tile at position 23:3 to the sprite at position 5,8 in the spritesheet
 	tilemap.set_cell(Vector2i(23, 3), 0, Vector2i(5, 8))
-
-	# Destroy the tile at position 22:7
 	tilemap.erase_cell(Vector2i(22, 7))
 
 func spawn_water_particle():

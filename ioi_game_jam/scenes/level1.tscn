@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://06q6gsqswyi7" path="res://assets/sprites/cave_tiles_v2.png" id="1_0ihef"]
 [ext_resource type="PackedScene" uid="uid://bd0kk31u7sx3l" path="res://scenes/slyna.tscn" id="2_krcqv"]
 [ext_resource type="PackedScene" uid="uid://bstteh213iyyx" path="res://scenes/water_generator.tscn" id="4_isg5d"]
-[ext_resource type="PackedScene" path="res://scenes/scene_manager.tscn" id="5_046uc"]
+[ext_resource type="PackedScene" uid="uid://cf1ibhkpgg4ss" path="res://scenes/scene_manager.tscn" id="5_046uc"]
 [ext_resource type="Script" path="res://scripts/scene1to2.gd" id="6_stds5"]
 [ext_resource type="Script" path="res://scripts/toggle_lever.gd" id="7_klvwm"]
 
@@ -258,7 +258,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_86x5o")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f63ys"]
-size = Vector2(31, 7)
+size = Vector2(80, 7)
 
 [node name="Level1" type="Node2D"]
 
@@ -276,22 +276,14 @@ spawn_y_range = Vector2(107, 110)
 [node name="SceneManager" parent="." instance=ExtResource("5_046uc")]
 
 [node name="SceneChange1" type="Area2D" parent="."]
+position = Vector2(88, 343)
 script = ExtResource("6_stds5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChange1"]
-position = Vector2(88, 343)
 shape = SubResource("RectangleShape2D_f63ys")
 
 [node name="Slyna" parent="." instance=ExtResource("2_krcqv")]
-position = Vector2(304, 48)
-speed = 125.0
-gravity = 500.0
-jump_force = -200.0
-wall_jump_force = 200.0
-wall_slide_speed = 20.0
-wall_jump_grace_time = 0.3
-wall_jump_cooldown = 0.5
-fire_rate = 1.0
+position = Vector2(316, 47)
 
 [node name="Lever" type="Area2D" parent="."]
 script = ExtResource("7_klvwm")
@@ -300,14 +292,19 @@ script = ExtResource("7_klvwm")
 position = Vector2(376, 60)
 shape = SubResource("RectangleShape2D_f63ys")
 
+[node name="SceneChange2" type="Area2D" parent="."]
+position = Vector2(360, 335)
+script = ExtResource("6_stds5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneChange2"]
+shape = SubResource("RectangleShape2D_f63ys")
+
 [connection signal="ready" from="SceneManager" to="SceneManager" method="_on_ready"]
-[connection signal="area_shape_entered" from="SceneChange1" to="SceneChange1" method="_on_area_shape_entered"]
-[connection signal="body_entered" from="SceneChange1" to="SceneChange1" method="_on_body_entered"]
-[connection signal="body_shape_entered" from="SceneChange1" to="SceneChange1" method="_on_body_shape_entered"]
-[connection signal="body_shape_exited" from="SceneChange1" to="SceneChange1" method="_on_body_shape_exited"]
+[connection signal="area_entered" from="SceneChange1" to="SceneChange1" method="_on_area_entered"]
 [connection signal="area_entered" from="Lever" to="Slyna" method="_on_lever_area_entered"]
 [connection signal="area_exited" from="Lever" to="Slyna" method="_on_lever_area_exited"]
 [connection signal="body_entered" from="Lever" to="Lever" method="_on_body_entered"]
 [connection signal="body_exited" from="Lever" to="Lever" method="_on_body_exited"]
 [connection signal="body_shape_entered" from="Lever" to="Lever" method="_on_body_shape_entered"]
 [connection signal="body_shape_exited" from="Lever" to="Lever" method="_on_body_shape_exited"]
+[connection signal="area_entered" from="SceneChange2" to="SceneChange2" method="_on_area_entered"]

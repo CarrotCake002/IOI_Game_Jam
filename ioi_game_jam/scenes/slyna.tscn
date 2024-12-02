@@ -84,14 +84,6 @@ animations = [{
 [node name="Slyna" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_xi7xo")
-speed = null
-gravity = null
-jump_force = null
-wall_jump_force = null
-wall_slide_speed = null
-wall_jump_grace_time = null
-wall_jump_cooldown = null
-fire_rate = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -102,8 +94,8 @@ sprite_frames = SubResource("SpriteFrames_bim5h")
 animation = &"jump"
 autoplay = "walking_r"
 
-[node name="TriggerArea" type="Area2D" parent="."]
+[node name="PlayerTriggerArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTriggerArea"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_sepgn")

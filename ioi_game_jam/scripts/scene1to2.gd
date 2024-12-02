@@ -1,8 +1,21 @@
 extends Area2D
 
-func _on_body_entered(body):
-	if body.name == "Slyna":
-		change_scene()
+var level_to_load: String
 
 func change_scene():
-	get_tree().change_scene_to_file("res://scenes/level2_not_drained.tscn")
+	print(Singleton.water_drained)
+	if Singleton.water_drained:
+		level_to_load = "res://scenes/level2_drained.tscn"
+	else:
+		level_to_load = "res://scenes/level2_not_drained.tscn"
+	get_tree().change_scene_to_file(level_to_load)
+
+
+func _on_scene_change_1_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerTriggerArea":
+		change_scene()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == "PlayerTriggerArea":
+		change_scene()
